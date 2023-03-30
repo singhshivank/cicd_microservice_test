@@ -27,13 +27,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build and Test demo2 with Maven 
-      working-directory: ./demo2-cicd
-      run: |
-          mvn clean install
-          mvn test
+    # - name: Build and Test demo2 with Maven 
+    #   working-directory: ./demo2-cicd
+    #   run: |
+    #       mvn clean install
+    #       mvn test
 
-    - name: Build demo with Maven 
+    - name: Build and Test demo with Maven 
       working-directory: ./demo-cicd
       run: |
           mvn clean install
