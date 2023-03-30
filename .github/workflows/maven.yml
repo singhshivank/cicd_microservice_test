@@ -34,7 +34,7 @@ jobs:
     - name: Build demo with Maven 
       working-directory: ./demo-cicd
       # run: mvn -f ./demo-cicd/pom.xml clean install
-      run: pwd
+      run: mvn clean install
         #  mvn -f ./demo-cicd/pom.xml clean install
     # Optional: Uploads the full dependency graph to GitHub  improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
