@@ -45,7 +45,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>springboot-cicd-demo</finalName>
+		<finalName>springboot-cicd-demo2</finalName>
 	</build>
 
 </project>
