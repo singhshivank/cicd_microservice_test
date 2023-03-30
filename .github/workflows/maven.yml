@@ -48,7 +48,7 @@ jobs:
         image: singhshivank/springboot-cicd-demo1
         tags: latest
         registry: docker.io
-        dockerfile: ./demo2-cicd/Dockerfile
+        dockerfile: ./demo-cicd/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
