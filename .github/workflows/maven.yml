@@ -30,6 +30,9 @@ jobs:
     - name: Build demo2 with Maven 
       working-directory: ./demo2-cicd
       run: mvn clean install
+    - name: test demo2 with Maven
+      working-directory: ./demo2-cicd
+      run: mvn test
 
     - name: Build demo with Maven 
       working-directory: ./demo-cicd
