@@ -1,6 +1,6 @@
 FROM openjdk:17
 EXPOSE 8080
-ADD /target /test
+ADD demo-cicd/target /test
 WORKDIR /test
 RUN bash -c 'dir'
 ADD /target/springboot-cicd-demo1.jar springboot-cicd-demo1.jar
