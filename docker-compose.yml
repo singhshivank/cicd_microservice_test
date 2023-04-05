@@ -1,21 +1,46 @@
-version: "3"
+version: '3'
+
 services:
-  web:
-    build: /demo2--cicd
-    ports:
-      - "8082:8082"
-    depends_on:
-      - "database"
-  solver:
-    build: /demo--cicd
-    ports:
-      - "8081:8091"
-    depends_on:
-      - "database"
-  database:
-    image: "mysql:latest"
-    ports:
-      - "3306:3306"
+  app1:
+    build:
+      context: .
+      dockerfile: ./demo-cicd/Dockerfile
+      args:
+        JAR_FILE: ./demo-cicd/target/*.jar
     environment:
-      - MYSQL_ROOT_PASSWORD=my-secret-pw
-      - MYSQL_DATABASE=webDatabase
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27011/tmf_test_cicd
+    ports:
+      - "8080:8081"
+    depends_on:
+      - mongo
+    container_name: demo-cicd
+
+  app2:
+    build:
+      context: .
+      dockerfile: ./demo2-cicd/Dockerfile
+      args:
+        JAR_FILE: ./demo2-cicd/target/*.jar
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27011/tmf_test_cicd
+    ports:
+      - "8081:8082"
+    depends_on:
+      - mongo
+    container_name: demo2-cicd
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27011:27017"
+    container_name: mongo
+
+volumes:
+  mongo_data:
+
+networks:
+  app_net:
+    driver: bridge
