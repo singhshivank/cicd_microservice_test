@@ -45,7 +45,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: singhshivank/springboot-cicd-demo1
-        tags: latest
+        tags: new
         registry: docker.io
         dockerfile: ./demo-cicd/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
